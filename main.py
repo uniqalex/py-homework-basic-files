@@ -44,3 +44,25 @@ def get_shop_list_by_dishes(dishes, person_count):
 res = get_shop_list_by_dishes(['Запеченный картофель', 'Оливье'], 3)
 print(res)
 
+#Tasl #3
+def open_enum_file(file_path):
+    result = {}
+    with open(file_path, encoding="utf8") as file:
+        file_name = file.name.split('/')[-1]
+        data = file.readlines()
+        result[(len(data), file_name)] = data
+
+    return result
+
+file1 = open_enum_file('files/1.txt')
+file2 = open_enum_file('files/2.txt')
+file3 = open_enum_file('files/3.txt')
+
+all_data = dict(list(file1.items()) + list(file2.items()) + list(file3.items()))
+
+with open('files/new_file.txt', 'w', encoding='utf8') as file:
+    for k in sorted(all_data.keys()):
+        file.write(k[1] + '\n')
+        file.write(str(k[0]) + '\n')
+        file.writelines(all_data[k])
+        file.write('\n')
