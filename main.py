@@ -44,7 +44,7 @@ def get_shop_list_by_dishes(dishes, person_count):
 res = get_shop_list_by_dishes(['Запеченный картофель', 'Оливье'], 3)
 print(res)
 
-#Tast #3
+#Task #3
 def open_enum_file(file_path):
     result = {}
     with open(file_path, encoding="utf8") as file:
